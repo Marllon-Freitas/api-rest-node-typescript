@@ -9,6 +9,12 @@ router.get("/", (req: Request, res: Response) => {
   return res.status(StatusCodes.OK).send("OK");
 });
 
+router.get(
+  "/cities",
+  CitiesController.getAllCityValidation,
+  CitiesController.getAll
+);
+
 router.post(
   "/cities",
   CitiesController.createCityValidation,
