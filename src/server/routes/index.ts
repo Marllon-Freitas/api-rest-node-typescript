@@ -9,6 +9,10 @@ router.get("/", (req: Request, res: Response) => {
   return res.status(StatusCodes.OK).send("OK");
 });
 
-router.post("/cities", CitiesController.create);
+router.post(
+  "/cities",
+  CitiesController.createBodyValidation,
+  CitiesController.create
+);
 
 export { router };
