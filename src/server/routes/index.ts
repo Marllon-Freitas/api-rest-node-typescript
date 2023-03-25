@@ -11,7 +11,7 @@ router.get("/", (req: Request, res: Response) => {
 
 router.post(
   "/cities",
-  CitiesController.createBodyValidation,
+  CitiesController.createCityValidation,
   CitiesController.create
 );
 
