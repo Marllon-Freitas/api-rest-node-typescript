@@ -1,14 +1,14 @@
-import express, { Router } from "express";
+import { Request, Response, Router } from "express";
 import { StatusCodes } from "http-status-codes";
+import { CitiesController } from "./../controllers";
 
 const router = Router();
 
-router.get("/", (req: express.Request, res: express.Response) => {
-  res.send("Hello World!");
+router.get("/", (req: Request, res: Response) => {
+  console.log(req.body);
+  return res.status(StatusCodes.OK).send("OK");
 });
 
-router.post("/", (req: express.Request, res: express.Response) => {
-  res.status(StatusCodes.OK).send("Hello World!");
-});
+router.post("/cities", CitiesController.create);
 
 export { router };
