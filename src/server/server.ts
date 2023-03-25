@@ -1,9 +1,12 @@
-import express  from "express";
+import express from "express";
+import "dotenv/config";
+import bodyParser from "body-parser";
+import { router } from "./routes";
 
 const server = express();
 
-server.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+server.use(bodyParser.json());
+server.use(router);
+server.use(bodyParser.urlencoded({ extended: false }));
 
 export { server };
