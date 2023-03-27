@@ -9,7 +9,7 @@ interface IQueryProps {
   filter?: string;
 }
 
-const cityGetAllValidation: yup.Schema<IQueryProps> = yup.object().shape({
+const cityGetAllValidation: yup.ObjectSchema<IQueryProps> = yup.object().shape({
   page: yup.number().min(1).moreThan(0),
   limit: yup.number().min(1).moreThan(0),
   filter: yup.string().min(3).strict(),
@@ -23,7 +23,8 @@ export const getAll = async (
   req: Request<{}, {}, {}, IQueryProps>,
   res: Response
 ) => {
+  console.log(req.query);
   return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "implemented",
+    message: "not implemented get all",
   });
 };

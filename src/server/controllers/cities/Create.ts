@@ -17,7 +17,7 @@ interface ICity {
 // });
 
 // body: yup.Schema<ICity>
-const cityBodyValidation: yup.Schema<ICity> = yup.object().shape({
+const cityBodyValidation: yup.ObjectSchema<ICity> = yup.object().shape({
   city_name: yup.string().required().min(3).strict(),
 });
 
@@ -26,7 +26,8 @@ export const createCityValidation = validation({
 });
 
 export const create = async (req: Request<{}, {}, ICity>, res: Response) => {
+  console.log(req.body);
   return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "Not implemented yet",
+    message: "Not implemented create",
   });
 };
