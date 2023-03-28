@@ -10,11 +10,11 @@ interface IBodyProps {
   city_name: string;
 }
 
-const cityBodyValidation: yup.ObjectSchema<IBodyProps> = yup.object().shape({
+const cityBodyValidation: yup.SchemaOf<IBodyProps> = yup.object().shape({
   city_name: yup.string().required().min(3).strict(),
 });
 
-const cityParamValidation: yup.ObjectSchema<IParamProps> = yup.object().shape({
+const cityParamValidation: yup.SchemaOf<IParamProps> = yup.object().shape({
   id: yup.number().integer().required().moreThan(0),
 });
 

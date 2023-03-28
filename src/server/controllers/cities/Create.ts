@@ -6,18 +6,8 @@ import * as yup from "yup";
 interface ICity {
   city_name: string;
 }
-// interface ICityFilter {
-//   city_filter?: string;
-//   limit?: number;
-// }
 
-// // query: yup.Schema<ICityFilter>
-// const filterCityValidation: yup.Schema<ICityFilter> = yup.object().shape({
-//   city_filter: yup.string().min(3).strict(),
-// });
-
-// body: yup.Schema<ICity>
-const cityBodyValidation: yup.ObjectSchema<ICity> = yup.object().shape({
+const cityBodyValidation: yup.SchemaOf<ICity> = yup.object().shape({
   city_name: yup.string().required().min(3).strict(),
 });
 
@@ -27,7 +17,5 @@ export const createCityValidation = validation({
 
 export const create = async (req: Request<{}, {}, ICity>, res: Response) => {
   console.log(req.body);
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "Not implemented create",
-  });
+  return res.status(StatusCodes.CREATED).json(2);
 };

@@ -9,7 +9,7 @@ interface IQueryProps {
   filter?: string;
 }
 
-const cityGetAllValidation: yup.ObjectSchema<IQueryProps> = yup.object().shape({
+const cityGetAllValidation: yup.SchemaOf<IQueryProps> = yup.object().shape({
   page: yup.number().min(1).moreThan(0),
   limit: yup.number().min(1).moreThan(0),
   filter: yup.string().min(3).strict(),

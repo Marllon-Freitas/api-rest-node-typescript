@@ -7,7 +7,7 @@ interface IParamsProps {
   id?: number;
 }
 
-const cityDeleteByIdValidation: yup.ObjectSchema<IParamsProps> = yup
+const cityDeleteByIdValidation: yup.SchemaOf<IParamsProps> = yup
   .object()
   .shape({
     id: yup.number().integer().required().moreThan(0),

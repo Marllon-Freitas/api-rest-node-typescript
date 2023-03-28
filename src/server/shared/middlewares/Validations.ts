@@ -4,7 +4,7 @@ import { StatusCodes } from "http-status-codes";
 
 type TProps = "body" | "query" | "params" | "headers";
 
-type TAllSchemas = Record<TProps, yup.ObjectSchema<any>>;
+type TAllSchemas = Record<TProps, yup.SchemaOf<any>>;
 
 type TValidation = (schemas: Partial<TAllSchemas>) => RequestHandler;
 
