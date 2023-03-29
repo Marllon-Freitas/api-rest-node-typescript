@@ -7,6 +7,7 @@ interface ICity {
   city_name: string;
 }
 
+// body: yup.Schema<ICity>
 const cityBodyValidation: yup.SchemaOf<ICity> = yup.object().shape({
   city_name: yup.string().required().min(3).strict(),
 });
@@ -17,5 +18,9 @@ export const createCityValidation = validation({
 
 export const create = async (req: Request<{}, {}, ICity>, res: Response) => {
   console.log(req.body);
-  return res.status(StatusCodes.CREATED).json(2);
+  return res.status(StatusCodes.CREATED).json({
+    message: `City ${req.body.city_name} created successfully`,
+    city_name: req.body.city_name,
+    id: 1,
+  });
 };

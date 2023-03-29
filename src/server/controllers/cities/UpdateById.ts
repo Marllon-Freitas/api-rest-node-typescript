@@ -28,7 +28,9 @@ export const updateById = async (
   res: Response
 ) => {
   console.log(req.body);
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "Not implemented update by id",
+  return res.status(StatusCodes.OK).json({
+    message: `City ${req.body.city_name} updated successfully`,
+    city_name: req.body.city_name,
+    id: Number(req.params.id),
   });
 };

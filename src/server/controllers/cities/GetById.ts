@@ -7,11 +7,9 @@ interface IParamsProps {
   id?: number;
 }
 
-const cityGetByIdValidation: yup.SchemaOf<IParamsProps> = yup
-  .object()
-  .shape({
-    id: yup.number().integer().required().moreThan(0),
-  });
+const cityGetByIdValidation: yup.SchemaOf<IParamsProps> = yup.object().shape({
+  id: yup.number().integer().required().moreThan(0),
+});
 
 export const getByIdCityValidation = validation({
   params: cityGetByIdValidation,
@@ -19,7 +17,8 @@ export const getByIdCityValidation = validation({
 
 export const getById = async (req: Request<IParamsProps>, res: Response) => {
   console.log(req.params);
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "not implemented get by id",
+  return res.status(StatusCodes.OK).json({
+    id: req.params.id,
+    city_name: "Cedro",
   });
 };

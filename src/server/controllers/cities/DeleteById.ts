@@ -19,7 +19,7 @@ export const getDeleteByIdCityValidation = validation({
 
 export const deleteById = async (req: Request<IParamsProps>, res: Response) => {
   console.log(req.params);
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    message: "not implemented delete by id",
-  });
+  return res.status(StatusCodes.OK).json(
+    `Register ${req.params.id} deleted successfully`
+  );
 };
