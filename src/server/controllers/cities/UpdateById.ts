@@ -2,11 +2,12 @@ import { validation } from "./../../shared/middlewares/Validations";
 import { Request, Response } from "express";
 import StatusCodes from "http-status-codes";
 import * as yup from "yup";
+import { ICities } from "../../database/models";
 
 interface IParamProps {
   id?: number;
 }
-interface IBodyProps {
+interface IBodyProps extends Omit<ICities, "id"> {
   city_name: string;
 }
 
