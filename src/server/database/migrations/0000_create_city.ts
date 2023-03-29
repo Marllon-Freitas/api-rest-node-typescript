@@ -3,9 +3,13 @@ import { ETableNames } from "../ETableNames";
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
-    .createTable("cities", (table) => {
+    .createTable(`${ETableNames.CITIES}`, (table) => {
       table.bigIncrements("id").primary().index();
-      table.string(ETableNames.CITIES, 150).notNullable().index();
+      table
+        .string("city_name", 150)
+        .checkLength("<=", 150)
+        .notNullable()
+        .index();
 
       table.comment("This table stores the cities");
     })

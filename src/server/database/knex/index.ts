@@ -13,6 +13,4 @@ const getEnvironment = () => {
   }
 };
 
-export const Knex = knex(
-  process.env.NODE_ENV === "test" ? test : development
-);
+export const Knex = knex(getEnvironment());
